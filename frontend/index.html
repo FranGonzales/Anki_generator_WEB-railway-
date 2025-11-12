@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador Anki - Gemini</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="header-text">
+                    <h1>Generador de Tarjetas Anki</h1>
+                    <p class="subtitle">Powered by Gemini 2.5 Flash</p>
+                </div>
+                <button class="theme-toggle" id="theme-toggle" title="Cambiar tema">
+                    <span class="toggle-icon">🌙</span>
+                </button>
+            </div>
+        </header>
+
+        <main>
+            <!-- Status Badge -->
+            <div class="status-container">
+                <div class="status-badge" id="status-badge">
+                    <span class="status-dot"></span>
+                    Verificando...
+                </div>
+            </div>
+
+            <!-- Área Principal: Texto + Archivo -->
+            <div class="content-area">
+                
+                <!-- Texto -->
+                <div class="section">
+                    <label for="texto-input">
+                        <span class="label-icon">📝</span>
+                        Texto
+                        <span class="label-hint">Pega tu contenido o contexto aquí</span>
+                    </label>
+                    <textarea 
+                        id="texto-input" 
+                        placeholder="Escribe o pega tu texto aquí...
+
+También puedes usar Ctrl+V para pegar imágenes desde el portapapeles."
+                        rows="10"
+                    ></textarea>
+                    <div class="char-counter">
+                        <span id="char-count">0</span> caracteres
+                    </div>
+                </div>
+
+                <!-- Archivo -->
+                <div class="section">
+                    <label>
+                        <span class="label-icon">📎</span>
+                        Archivo (opcional)
+                        <span class="label-hint">Imagen o PDF · Máx 20MB · Ctrl+V para pegar</span>
+                    </label>
+                    <div class="file-area" id="file-area">
+                        <div class="file-drop-zone" id="drop-zone">
+                            <div class="drop-content" id="drop-content">
+                                <div class="drop-icon">📁</div>
+                                <p class="drop-text">Arrastra un archivo aquí</p>
+                                <p class="drop-subtext">o haz clic para seleccionar</p>
+                                <button type="button" class="btn-select-file">Seleccionar archivo</button>
+                            </div>
+                            <div class="file-preview-container hidden" id="file-preview">
+                                <div class="file-preview-content" id="preview-content"></div>
+                                <button class="btn-remove-file" id="remove-file" title="Quitar archivo">✕</button>
+                            </div>
+                        </div>
+                        <input type="file" id="file-input" accept=".pdf,.png,.jpg,.jpeg,.gif,.webp" hidden>
+                    </div>
+                </div>
+
+                <!-- Control de Tarjetas -->
+                <div class="section">
+                    <label for="num-tarjetas-control">
+                        <span class="label-icon">🎯</span>
+                        Número de tarjetas
+                        <span class="label-hint">Automático o personalizado</span>
+                    </label>
+                    <div class="tarjetas-control">
+                        <div class="control-mode">
+                            <label class="radio-label">
+                                <input type="radio" name="modo-tarjetas" value="auto" checked>
+                                <span class="radio-custom"></span>
+                                Automático (10-25)
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="modo-tarjetas" value="manual">
+                                <span class="radio-custom"></span>
+                                Personalizado
+                            </label>
+                        </div>
+                        <div class="slider-container hidden" id="slider-container">
+                            <input type="range" id="num-tarjetas-slider" min="5" max="50" value="15" step="1">
+                            <div class="slider-value">
+                                <span id="slider-value-display">15</span> tarjetas
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Botones de Acción -->
+            <div class="actions">
+                <button id="generar-btn" class="btn btn-primary">
+                    <span class="btn-icon">✨</span>
+                    Generar Tarjetas
+                </button>
+                <button id="limpiar-btn" class="btn btn-secondary">
+                    <span class="btn-icon">🗑️</span>
+                    Limpiar
+                </button>
+            </div>
+
+            <!-- Loading -->
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p id="loading-text" class="loading-text">Analizando contenido...</p>
+            </div>
+
+            <!-- Resultados -->
+            <div id="resultado" class="resultado hidden">
+                <div class="resultado-header">
+                    <h2>Tarjetas Generadas</h2>
+                    <div class="resultado-badge">
+                        <span id="num-tarjetas-generadas">0</span> tarjetas
+                    </div>
+                </div>
+                
+                <div class="resultado-info" id="tipo-contenido"></div>
+                
+                <div class="tarjetas-preview" id="tarjetas-preview"></div>
+
+                <div class="download-area">
+                    <button id="descargar-btn" class="btn btn-download">
+                        <span class="btn-icon">⬇️</span>
+                        Descargar CSV para Anki
+                    </button>
+                    
+                    <details class="instrucciones">
+                        <summary>📖 Cómo importar en Anki</summary>
+                        <ol>
+                            <li>Descarga el archivo CSV</li>
+                            <li>Abre Anki → <strong>Archivo → Importar</strong></li>
+                            <li>Selecciona el archivo descargado</li>
+                            <li>Configuración:
+                                <ul>
+                                    <li>Separador: <strong>Punto y coma (;)</strong></li>
+                                    <li>Tipo de nota: <strong>Básico</strong></li>
+                                </ul>
+                            </li>
+                            <li>Click en <strong>Importar</strong></li>
+                        </ol>
+                    </details>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Generador de Tarjetas Anki con IA · Gratis con Gemini 2.5 Flash</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
