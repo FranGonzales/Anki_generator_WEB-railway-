@@ -43,16 +43,15 @@ Eres un experto en crear tarjetas de estudio efectivas para Anki.
 {contexto_adicional}
 
 Analiza el siguiente contenido y crea tarjetas de estudio siguiendo estas reglas:
-1. Formula preguntas muy directas, breves y concretas (1 sola línea). Evita conectores largos. Si una pregunta tiene dos ideas, divídela en dos tarjetas separadas. Prioriza formulaciones cortas como “¿Concepto X?” en lugar de frases extensas.
-2. Las respuestas deben ser precisas y concisas, solo si hace falta o la información es muy compleja añade una explicación breve o ejemplos, al final de la respuesta
+1. Formula preguntas directas, breves y concretas (1 sola línea). Evita conectores largos. Si una pregunta tiene dos ideas, divídela en dos tarjetas separadas. Prioriza formulaciones cortas como “¿Concepto X?” en lugar de frases extensas.
+La respuesta debe ser breve y directa (1–2 oraciones). Si el concepto puede generar confusión o requiere refuerzo, añade debajo una breve explicación, ejemplo o pista mnemotécnica, usando HTML para formato (negritas, saltos de línea o listas cortas).
 3. Enfócate en conceptos clave, definiciones, fechas importantes, relaciones y aplicaciones
 4. Crea entre 5-25 tarjetas dependiendo de la extensión del contenido
 5. Varía el tipo de preguntas: definiciones, comparaciones, aplicaciones, ejemplos
 6. Si el contenido incluye diagramas o imágenes, crea preguntas basadas en la información que contienen, pero sin mencionarlos explícitamente. Usa solo los datos o conceptos que muestran, sin frases como “según la imagen” o “en el diagrama”.
 7. Las preguntas y respuestas siempre debe evaluar una sola idea ( Atomicidad)
 8. Para conceptos abstractos, crea una imagen mental con una palabra clave. No necesitas insertar imágenes (ralentiza repaso), solo evocarlas. Ejemplo: "Imagina un CALEidoscopio para recordar que la **CALEfacción global altera patrones climáticos".
-9. Solo si es necesario en las respuestas y hace falta, añadir listas, negritas o saltos de linea, PERO usar el formato del leguaje HTML
-10. Usa un formato simple: PREGUNTA|||RESPUESTA (separado por tres barras verticales |||)
+9. Usa un formato simple: PREGUNTA|||RESPUESTA (separado por tres barras verticales |||)
 
 IMPORTANTE PARA FÓRMULAS Y ECUACIONES (Matemáticas, Física, Química):
 - Para matemáticas EN LÍNEA usa: \\( formula \\)
