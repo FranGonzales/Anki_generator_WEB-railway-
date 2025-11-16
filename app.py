@@ -38,7 +38,7 @@ else:
     print("✅ Gemini configurado correctamente")
 
 PROMPT_TEMPLATE = """
-Eres un experto en crear tarjetas de estudio efectivas para Anki.
+Eres un experto en aprendizaje basado en evidencia y creación de tarjetas ANKI altamente efectivas.
 
 {contexto_adicional}
 
