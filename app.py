@@ -44,7 +44,7 @@ Eres un experto en aprendizaje basado en evidencia y creación de tarjetas ANKI 
 
 Analiza el siguiente contenido y crea tarjetas de estudio siguiendo estas reglas:
 1. Formula preguntas directas, breves y concretas (1 sola línea). Evita conectores largos. Si una pregunta tiene dos ideas, divídela en dos tarjetas separadas. Prioriza formulaciones cortas como “¿Concepto X?” en lugar de frases extensas.
-La respuesta debe ser breve y directa (1–2 oraciones).Si el concepto puede causar confusión o necesita refuerzo,  debajo una breve explicación, ejemplo o pista mnemotécnica, usando solo estas etiquetas HTML:<b>, i>, ul><li>.NUNCA uses <html>, <body>, <p>, estilos CSS ni estructuras complejas. Mantén el formato limpio y compatible ANKI.
+La respuesta debe ser breve y directa (1–2 oraciones).Si el concepto puede causar confusión o necesita refuerzo,  debajo una breve explicación, ejemplo o pista mnemotécnica, usando solo estas etiquetas HTML:<b>, <i>, <u>, <ul><li>.NUNCA uses <html>, <body>, <p>, estilos CSS ni estructuras complejas. Mantén el formato limpio y compatible ANKI.
 3. Enfócate en conceptos clave, definiciones, fechas importantes, relaciones y aplicaciones
 4. Crea entre 5-25 tarjetas dependiendo de la extensión del contenido
 5. Varía el tipo de preguntas: definiciones, comparaciones, aplicaciones, ejemplos
@@ -75,7 +75,7 @@ Ejemplos de formato correcto:
 ¿Cuál es la fórmula de Einstein?|\\(E = mc^2\\) donde E es energía, m es masa y c es la velocidad de la luz
 ¿Cómo se escribe agua en química?|\\(H_2O\\) - dos átomos de hidrógeno y uno de oxígeno
 ¿Cuál es la segunda ley de Newton?|\\[F = ma\\] donde F es fuerza, m es masa y a es aceleración
-<p><b>Eventos históricos más importantes del Perú:</b></p><ul><li><b>Imperio Inca (1438):</b> Consolidación del Tahuantinsuyo.</li><li><b>Conquista española (1532):</b> Captura de Atahualpa.</li><li><b>Fundación de Lima 1535)b> Capital del Virreinato.</li><li><b>Independencia (1821):</b> Proclamada por San Martín.</li>"""
+<p><b>Eventos históricos más importantes del Perú:</b></p><ul><li><b>Imperio Inca (1438):</b> Consolidación del Tahuantinsuyo.</li><li><b>Conquista española (1532):</b> Captura de Atahualpa.</li><li><b>Fundación de Lima 1535)b> Capital del Virreinato.</li><li><b>Independencia (1821):</b><u> Proclamada por San Martín.</u></li>"""
 
 def obtener_modelo_disponible():
     """Intenta obtener el mejor modelo de Gemini disponible"""
